@@ -50,9 +50,13 @@ services:
 
 - volumes基本规则->**文件夹:文件夹；文件:文件
 
-## About
+## FAQ
 
-This repository is forked from ONLYOFFICE/Docker-CommunityServer, we have the following modifications are provided
+#### MySQL 容器为什么无法使用 172.0.0.1 这种访问方式？
+暂时无法得知，可能与用户的所支持的主机名列表有关系
 
-* replace README.md
-* add README-zh.md, CHANGELOG.md, Note.md, License.md, docker-compose-production.yml, .github folder
+#### command 能带哪些参数？
+运行下面的命令查询  
+```
+docker run -it --rm mysql:tag --verbose --help
+```
