@@ -1,8 +1,5 @@
-# add this file
-# default MySQL root password is 123456
-# default version:5.7
-# if you want to change mysql version: 1. change file: ./.env_all 2. add parameter: docker run -e DB_MYSQL_VERSION=${your_version}.
-# tip: please clear all files in your compose’folder.
+# refer to: https://github.com/docker-library/docs/blob/master/mongo/stack.yml
+# image: https://hub.docker.com/_/mysql
 
 version: '3.8'
 
@@ -16,12 +13,14 @@ services:
      - ${DB_MYSQL_PORT}:3306
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-     - mysql:/var/lib/mysql
+     - mysql_data:/var/lib/mysql
+     - mysql_conf:/etc/mysql/conf.d
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_MYSQL_PASSWORD}
 
 volumes:
-  mysql:
+  mysql_data:
+  mysql_conf:
   
 networks:
   default:
