@@ -10,13 +10,13 @@ services:
     container_name: ${APP_NAME}
     restart: always
     ports:
-     - ${DB_MYSQL_PORT}:3306
+     - ${APP_DB_PORT}:3306
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
      - mysql_data:/var/lib/mysql
      - ./src/conf.d/:/etc/mysql/conf.d
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${APP_PASSWORD}
 
 volumes:
   mysql_data:
